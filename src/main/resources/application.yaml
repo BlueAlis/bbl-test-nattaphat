@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.github.bluealis: DEBUG
+    org.springframework.security: DEBUG
+    
+spring:
+  application:
+    name: spring-boot-boilerplate
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/boilerplate_db
+    driver-class-name: org.postgresql.Driver
+    username: dev
+    password: "dev"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
