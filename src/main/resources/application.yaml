@@ -5,11 +5,10 @@ logging:
   level:
     root: INFO
     com.github.bluealis: DEBUG
-    org.springframework.security: DEBUG
 
 spring:
   application:
-    name: spring-boot-boilerplate
+    name: spring-boot-testbbl
   profiles:
     active: dev
   datasource:
