@@ -12,21 +12,22 @@ Run
 
 API
 
-GET    /users
-GET    /users/{id}
-POST   /users
-PUT    /users/{id}
-DELETE /users/{id}
-POST   /users/batch
+- GET    /users
+- GET    /users/{id}
+- POST   /users
+- PUT    /users/{id}
+- DELETE /users/{id}
+- POST   /users/batch
 
 
 Test
 
 ./mvnw test
 
-Should do
-JWT AUTH
-SWAWGER
-USER ROLE
-MORE VALIDATE
-SAFE DELETE
+SHOULD DO
+
+- JWT Auth
+- Swagger
+- User Role
+- More Validation
+- Safe Delete
