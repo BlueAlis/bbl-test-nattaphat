@@ -1,5 +1,6 @@
 package org.interview.bbl.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.interview.bbl.dto.request.UserRequest;
 import org.interview.bbl.dto.response.UserResponse;
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest request) {
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest request) {
         UserResponse created = userService.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
@@ -43,7 +44,7 @@ public class UserController {
     @PutMapping("/{userId}")
     public ResponseEntity<UserResponse> updateUser(
             @PathVariable Long userId,
-            @RequestBody UserRequest request) {
+            @Valid @RequestBody UserRequest request) {
         return ResponseEntity.ok(userService.updateUser(userId, request));
     }
 
@@ -54,7 +55,7 @@ public class UserController {
     }
 
     @PostMapping("/batch")
-    public ResponseEntity<List<UserResponse>> createUserList(@RequestBody List<UserRequest> requests) {
+    public ResponseEntity<List<UserResponse>> createUserList(@Valid @RequestBody List<@Valid UserRequest> requests) {
         List<UserResponse> created = userService.createUserList(requests);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
