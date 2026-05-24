@@ -56,6 +56,7 @@ public class UserController {
 
     @PostMapping("/batch")
     public ResponseEntity<List<UserResponse>> createUserList(@Valid @RequestBody List<@Valid UserRequest> requests) {
+        //for insert data for https://jsonplaceholder.typicode.com/users
         List<UserResponse> created = userService.createUserList(requests);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
