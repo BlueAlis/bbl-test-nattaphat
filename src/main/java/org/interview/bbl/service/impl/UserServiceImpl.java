@@ -65,5 +65,16 @@ public class UserServiceImpl implements UserService {
         //set status INACTIVE
         userRepository.deleteById(userId);
     }
+
+    @Override
+    @Transactional
+    public List<UserResponse> createUserList(List<UserRequest> requests) {
+        List<User> users = requests.stream()
+                .map(userMapper::toEntity)
+                .toList();
+        return userRepository.saveAll(users).stream()
+                .map(userMapper::toResponse)
+                .toList();
+    }
 }
 
